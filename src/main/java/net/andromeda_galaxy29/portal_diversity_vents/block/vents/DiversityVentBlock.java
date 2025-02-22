@@ -32,7 +32,15 @@ public class DiversityVentBlock extends Block {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return defaultBlockState().setValue(AXIS, context.getClickedFace().getAxis());
+        if (!(context.getPlayer() != null && context.getPlayer().isShiftKeyDown())){
+            for (Direction dir : Direction.values()){
+                BlockState state = context.getLevel().getBlockState(context.getClickedPos().relative(dir));
+                if (state.getBlock() instanceof DiversityVentBlock){
+                    return defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+                }
+            }
+        }
+        return defaultBlockState().setValue(AXIS, context.getNearestLookingDirection().getAxis());
     }
 
     @Override
@@ -64,13 +72,17 @@ public class DiversityVentBlock extends Block {
         //Don't connect if the other one is already maximum length
         BlockPos behindOtherPos = pos.offset(otherPos.subtract(pos).multiply(2));
         BlockState behindOtherState = level.getBlockState(behindOtherPos);
-        if(behindOtherState.getBlock() instanceof DiversityVentBlock && behindOtherState.getValue(PART) == DiversityVentPart.MIDDLE){
+        if(behindOtherState.getBlock() instanceof DiversityVentBlock &&
+                state.getValue(AXIS) == behindOtherState.getValue(AXIS) &&
+                behindOtherState.getValue(PART) == DiversityVentPart.MIDDLE){
             return false;
         }
         //Don't connect if this one is already maximum length
         BlockPos behindPos = pos.offset(pos.subtract(otherPos));
         BlockState behindState = level.getBlockState(behindPos);
-        if(behindState.getBlock() instanceof DiversityVentBlock && behindState.getValue(PART) == DiversityVentPart.MIDDLE){
+        if(behindState.getBlock() instanceof DiversityVentBlock &&
+                state.getValue(AXIS) == behindState.getValue(AXIS) &&
+                behindState.getValue(PART) == DiversityVentPart.MIDDLE){
             return false;
         }
 
