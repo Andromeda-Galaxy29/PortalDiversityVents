@@ -1,0 +1,7 @@
+{
+	"parent": "portal_diversity_vents:block/diversity_vent_gate",
+	"textures": {
+		"0": "portal_diversity_vents:block/diversity_vent_gate_positive",
+		"particle": "portal_diversity_vents:block/diversity_vent_gate_positive"
+	}
+}

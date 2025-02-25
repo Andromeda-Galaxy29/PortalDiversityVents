@@ -1,23 +1,21 @@
-package net.andromeda_galaxy29.portal_diversity_vents.block.vents;
+package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent;
 
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class DiversityVentBlock extends Block {
+public class DiversityVentBlock extends PipeBlock {
 
-    public static final EnumProperty<Direction.Axis> AXIS;
     public static final EnumProperty<DiversityVentPart> PART;
 
     public DiversityVentBlock(Properties properties){
@@ -31,24 +29,11 @@ public class DiversityVentBlock extends Block {
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext context) {
-        if (!(context.getPlayer() != null && context.getPlayer().isShiftKeyDown())){
-            for (Direction dir : Direction.values()){
-                BlockState state = context.getLevel().getBlockState(context.getClickedPos().relative(dir));
-                if (state.getBlock() instanceof DiversityVentBlock){
-                    return defaultBlockState().setValue(AXIS, state.getValue(AXIS));
-                }
-            }
-        }
-        return defaultBlockState().setValue(AXIS, context.getNearestLookingDirection().getAxis());
-    }
-
-    @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos neighborPos, boolean p_60514_) {
         super.neighborChanged(state, level, pos, block, neighborPos, p_60514_);
-        BlockPos frontPos = pos.relative(state.getValue(AXIS), -1);
+        BlockPos frontPos = pos.relative(state.getValue(AXIS), 1);
         BlockState frontState = level.getBlockState(frontPos);
-        BlockPos backPos = pos.relative(state.getValue(AXIS), 1);
+        BlockPos backPos = pos.relative(state.getValue(AXIS), -1);
         BlockState backState = level.getBlockState(backPos);
 
         if (!canConnect(level, pos, state, frontPos, frontState) && canConnect(level, pos, state, backPos, backState)){
@@ -110,7 +95,6 @@ public class DiversityVentBlock extends Block {
     }
 
     static {
-        AXIS = BlockStateProperties.AXIS;
         PART = EnumProperty.create("part", DiversityVentPart.class);
     }
 }

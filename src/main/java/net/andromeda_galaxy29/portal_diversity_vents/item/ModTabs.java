@@ -19,6 +19,7 @@ public class ModTabs {
             .title(Component.translatable("creativetab.diversity_vents"))
             .displayItems((itemDisplayParameters, output) -> {
                 output.accept(ModBlocks.DIVERSITY_VENT.get());
+                output.accept(ModBlocks.DIVERSITY_VENT_GATE.get());
             })
             .build());
 

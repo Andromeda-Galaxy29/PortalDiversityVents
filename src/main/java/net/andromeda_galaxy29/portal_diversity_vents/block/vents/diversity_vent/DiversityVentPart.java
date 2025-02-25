@@ -1,4 +1,4 @@
-package net.andromeda_galaxy29.portal_diversity_vents.block.vents;
+package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent;
 
 import net.minecraft.util.StringRepresentable;
 

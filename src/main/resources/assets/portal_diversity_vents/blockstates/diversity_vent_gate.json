@@ -1,0 +1,37 @@
+{
+  "variants": {
+    "axis=z,flow_direction=none": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate"
+    },
+    "axis=x,flow_direction=none": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate",
+      "y": -90
+    },
+    "axis=y,flow_direction=none": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate",
+      "x": 90
+    },
+    "axis=z,flow_direction=positive": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate_positive"
+    },
+    "axis=x,flow_direction=positive": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate_positive",
+      "y": -90
+    },
+    "axis=y,flow_direction=positive": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate_positive",
+      "x": 90
+    },
+    "axis=z,flow_direction=negative": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate_negative"
+    },
+    "axis=x,flow_direction=negative": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate_negative",
+      "y": -90
+    },
+    "axis=y,flow_direction=negative": {
+      "model": "portal_diversity_vents:block/diversity_vent_gate_negative",
+      "x": 90
+    }
+  }
+}
