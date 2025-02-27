@@ -1,11 +1,16 @@
 package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent;
 
+import net.andromeda_galaxy29.portal_diversity_vents.block.ModBlockEntities;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -13,6 +18,8 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import javax.annotation.Nullable;
 
 public class DiversityVentBlock extends PipeBlock {
 
@@ -26,6 +33,21 @@ public class DiversityVentBlock extends PipeBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(new Property[]{AXIS, PART});
+    }
+
+    @Override
+    public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state){
+        return new DiversityVentBlockEntity(pos, state);
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        if(level.isClientSide()){
+            return null;
+        }
+
+        return createTickerHelper(blockEntityType, ModBlockEntities.DIVERSITY_VENT_BLOCK_ENTITY.get(),
+                (level1, pos, state1, blockEntity) -> blockEntity.tick(level1, pos, state1));
     }
 
     @Override

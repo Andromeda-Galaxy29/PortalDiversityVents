@@ -1,6 +1,7 @@
 package net.andromeda_galaxy29.portal_diversity_vents;
 
 import com.mojang.logging.LogUtils;
+import net.andromeda_galaxy29.portal_diversity_vents.block.ModBlockEntities;
 import net.andromeda_galaxy29.portal_diversity_vents.block.ModBlocks;
 import net.andromeda_galaxy29.portal_diversity_vents.item.ModItems;
 import net.andromeda_galaxy29.portal_diversity_vents.item.ModTabs;
@@ -27,6 +28,7 @@ public class PortalDiversityVentsMod
         ModTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
