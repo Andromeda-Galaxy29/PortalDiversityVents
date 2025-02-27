@@ -1,35 +1,35 @@
 {
   "variants": {
-    "axis=z,flow_direction=none": {
+    "axis=z,direction=none": {
       "model": "portal_diversity_vents:block/diversity_vent_gate"
     },
-    "axis=x,flow_direction=none": {
+    "axis=x,direction=none": {
       "model": "portal_diversity_vents:block/diversity_vent_gate",
       "y": -90
     },
-    "axis=y,flow_direction=none": {
+    "axis=y,direction=none": {
       "model": "portal_diversity_vents:block/diversity_vent_gate",
       "x": 90
     },
-    "axis=z,flow_direction=positive": {
+    "axis=z,direction=positive": {
       "model": "portal_diversity_vents:block/diversity_vent_gate_positive"
     },
-    "axis=x,flow_direction=positive": {
+    "axis=x,direction=positive": {
       "model": "portal_diversity_vents:block/diversity_vent_gate_positive",
       "y": -90
     },
-    "axis=y,flow_direction=positive": {
+    "axis=y,direction=positive": {
       "model": "portal_diversity_vents:block/diversity_vent_gate_positive",
       "x": 90
     },
-    "axis=z,flow_direction=negative": {
+    "axis=z,direction=negative": {
       "model": "portal_diversity_vents:block/diversity_vent_gate_negative"
     },
-    "axis=x,flow_direction=negative": {
+    "axis=x,direction=negative": {
       "model": "portal_diversity_vents:block/diversity_vent_gate_negative",
       "y": -90
     },
-    "axis=y,flow_direction=negative": {
+    "axis=y,direction=negative": {
       "model": "portal_diversity_vents:block/diversity_vent_gate_negative",
       "x": 90
     }

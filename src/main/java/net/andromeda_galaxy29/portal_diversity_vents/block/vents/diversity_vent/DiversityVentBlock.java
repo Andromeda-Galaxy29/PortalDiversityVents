@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -87,7 +86,7 @@ public class DiversityVentBlock extends PipeBlock {
         //Don't connect if this one is already maximum length
         BlockPos behindPos = pos.offset(pos.subtract(otherPos));
         BlockState behindState = level.getBlockState(behindPos);
-        if(behindState.getBlock() instanceof DiversityVentBlock &&
+        if (behindState.getBlock() instanceof DiversityVentBlock &&
                 state.getValue(AXIS) == behindState.getValue(AXIS) &&
                 behindState.getValue(PART) == DiversityVentPart.MIDDLE){
             return false;
