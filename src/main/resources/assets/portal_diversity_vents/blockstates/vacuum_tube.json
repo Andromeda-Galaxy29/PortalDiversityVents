@@ -1,0 +1,48 @@
+{
+  "variants": {
+    "axis=z,part=default": {
+      "model": "portal_diversity_vents:block/vacuum_tube"
+    },
+    "axis=x,part=default": {
+      "model": "portal_diversity_vents:block/vacuum_tube",
+      "y": -90
+    },
+    "axis=y,part=default": {
+      "model": "portal_diversity_vents:block/vacuum_tube",
+      "x": 90
+    },
+    "axis=z,part=front": {
+      "model": "portal_diversity_vents:block/vacuum_tube_front"
+    },
+    "axis=x,part=front": {
+      "model": "portal_diversity_vents:block/vacuum_tube_front",
+      "y": -90
+    },
+    "axis=y,part=front": {
+      "model": "portal_diversity_vents:block/vacuum_tube_front",
+      "x": 90
+    },
+    "axis=z,part=middle": {
+      "model": "portal_diversity_vents:block/vacuum_tube_middle"
+    },
+    "axis=x,part=middle": {
+      "model": "portal_diversity_vents:block/vacuum_tube_middle",
+      "y": -90
+    },
+    "axis=y,part=middle": {
+      "model": "portal_diversity_vents:block/vacuum_tube_middle",
+      "x": 90
+    },
+    "axis=z,part=back": {
+      "model": "portal_diversity_vents:block/vacuum_tube_back"
+    },
+    "axis=x,part=back": {
+      "model": "portal_diversity_vents:block/vacuum_tube_back",
+      "y": -90
+    },
+    "axis=y,part=back": {
+      "model": "portal_diversity_vents:block/vacuum_tube_back",
+      "x": 90
+    }
+  }
+}

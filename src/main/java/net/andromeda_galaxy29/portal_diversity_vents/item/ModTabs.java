@@ -15,11 +15,11 @@ public class ModTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PortalDiversityVentsMod.MODID);
 
     public static final RegistryObject<CreativeModeTab> TAB_DIVERSITY_VENTS = TABS.register("diversity_vents", () -> CreativeModeTab.builder()
-            .icon(() -> new ItemStack(ModBlocks.DIVERSITY_VENT.get()))
+            .icon(() -> new ItemStack(ModBlocks.VACUUM_TUBE.get()))
             .title(Component.translatable("creativetab.diversity_vents"))
             .displayItems((itemDisplayParameters, output) -> {
+                output.accept(ModBlocks.VACUUM_TUBE.get());
                 output.accept(ModBlocks.DIVERSITY_VENT.get());
-                output.accept(ModBlocks.DIVERSITY_VENT_GATE.get());
             })
             .build());
 

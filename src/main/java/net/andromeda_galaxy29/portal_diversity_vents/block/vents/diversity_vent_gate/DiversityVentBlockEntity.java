@@ -6,10 +6,6 @@ import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlockEntity
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.DustParticleOptions;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleType;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -19,10 +15,10 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
-public class DiversityVentGateBlockEntity extends PipeBlockEntity {
+public class DiversityVentBlockEntity extends PipeBlockEntity {
 
-    public DiversityVentGateBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.DIVERSITY_VENT_GATE_BLOCK_ENTITY.get(), pos, state);
+    public DiversityVentBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.DIVERSITY_VENT_BLOCK_ENTITY.get(), pos, state);
     }
 
     @Override
@@ -30,16 +26,16 @@ public class DiversityVentGateBlockEntity extends PipeBlockEntity {
         super.tick(level, pos, state);
 
         Direction.Axis axis = state.getValue(PipeBlock.AXIS);
-        DiversityVentGateDirection ventDir = state.getValue(DiversityVentGateBlock.DIRECTION);
+        DiversityVentDirection ventDir = state.getValue(DiversityVentBlock.DIRECTION);
 
-        if (ventDir == DiversityVentGateDirection.NONE){
+        if (ventDir == DiversityVentDirection.NONE){
             return;
         }
 
         suck(level, pos, axis, ventDir);
     }
 
-    public void suck(Level level, BlockPos pos, Direction.Axis axis, DiversityVentGateDirection ventDir){
+    public void suck(Level level, BlockPos pos, Direction.Axis axis, DiversityVentDirection ventDir){
         if(level.getBlockState(pos.relative(axis, -ventDir.toInt())).getBlock() instanceof PipeBlock){
             return;
         }
@@ -65,19 +61,19 @@ public class DiversityVentGateBlockEntity extends PipeBlockEntity {
         }
     }
 
-    public void createParticles(Level level, BlockPos pos, Direction.Axis axis, DiversityVentGateDirection ventDir){
+    public void createParticles(Level level, BlockPos pos, Direction.Axis axis, DiversityVentDirection ventDir){
         level.addParticle(new DustParticleOptions(Vec3.fromRGB24(16433664).toVector3f(), 1), pos.getX(), pos.getY(), pos.getZ(), 0,0,0);
     }
 
     @Override
     public Direction getMotionDirection(Level level, Entity entity, BlockPos pos, BlockState state) {
-        if (!(state.getBlock() instanceof DiversityVentGateBlock)){
+        if (!(state.getBlock() instanceof DiversityVentBlock)){
             return null;
         }
 
         Direction.Axis axis = state.getValue(PipeBlock.AXIS);
-        DiversityVentGateDirection ventDir = state.getValue(DiversityVentGateBlock.DIRECTION);
-        if(ventDir == DiversityVentGateDirection.NONE){
+        DiversityVentDirection ventDir = state.getValue(DiversityVentBlock.DIRECTION);
+        if(ventDir == DiversityVentDirection.NONE){
             return super.getMotionDirection(level, entity, pos, state);
         }else{
             return Direction.fromAxisAndDirection(axis, ventDir.getAxisDirection());

@@ -20,13 +20,13 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
-public class DiversityVentBlock extends PipeBlock {
+public class VacuumTubeBlock extends PipeBlock {
 
-    public static final EnumProperty<DiversityVentPart> PART;
+    public static final EnumProperty<VacuumTubePart> PART;
 
-    public DiversityVentBlock(Properties properties){
+    public VacuumTubeBlock(Properties properties){
         super(properties);
-        this.registerDefaultState(defaultBlockState().setValue(AXIS, Direction.Axis.Z).setValue(PART, DiversityVentPart.DEFAULT));
+        this.registerDefaultState(defaultBlockState().setValue(AXIS, Direction.Axis.Z).setValue(PART, VacuumTubePart.DEFAULT));
     }
 
     @Override
@@ -36,7 +36,7 @@ public class DiversityVentBlock extends PipeBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state){
-        return new DiversityVentBlockEntity(pos, state);
+        return new VacuumTubeBlockEntity(pos, state);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class DiversityVentBlock extends PipeBlock {
             return null;
         }
 
-        return createTickerHelper(blockEntityType, ModBlockEntities.DIVERSITY_VENT_BLOCK_ENTITY.get(),
+        return createTickerHelper(blockEntityType, ModBlockEntities.VACUUM_TUBE_BLOCK_ENTITY.get(),
                 (level1, pos, state1, blockEntity) -> blockEntity.tick(level1, pos, state1));
     }
 
@@ -58,18 +58,18 @@ public class DiversityVentBlock extends PipeBlock {
         BlockState backState = level.getBlockState(backPos);
 
         if (!canConnect(level, pos, state, frontPos, frontState) && canConnect(level, pos, state, backPos, backState)){
-            level.setBlockAndUpdate(pos, state.setValue(PART, DiversityVentPart.FRONT));
+            level.setBlockAndUpdate(pos, state.setValue(PART, VacuumTubePart.FRONT));
         }else if (canConnect(level, pos, state, frontPos, frontState) && canConnect(level, pos, state, backPos, backState)){
-            level.setBlockAndUpdate(pos, state.setValue(PART, DiversityVentPart.MIDDLE));
+            level.setBlockAndUpdate(pos, state.setValue(PART, VacuumTubePart.MIDDLE));
         }else if (canConnect(level, pos, state, frontPos, frontState) && !canConnect(level, pos, state, backPos, backState)){
-            level.setBlockAndUpdate(pos, state.setValue(PART, DiversityVentPart.BACK));
+            level.setBlockAndUpdate(pos, state.setValue(PART, VacuumTubePart.BACK));
         }else{
-            level.setBlockAndUpdate(pos, state.setValue(PART, DiversityVentPart.DEFAULT));
+            level.setBlockAndUpdate(pos, state.setValue(PART, VacuumTubePart.DEFAULT));
         }
     }
 
     public boolean canConnect(Level level, BlockPos pos, BlockState state, BlockPos otherPos, BlockState otherState){
-        if (!(otherState.getBlock() instanceof DiversityVentBlock &&
+        if (!(otherState.getBlock() instanceof VacuumTubeBlock &&
                 state.getValue(AXIS) == otherState.getValue(AXIS))) {
             return false;
         }
@@ -78,17 +78,17 @@ public class DiversityVentBlock extends PipeBlock {
         //Don't connect if the other one is already maximum length
         BlockPos behindOtherPos = pos.offset(otherPos.subtract(pos).multiply(2));
         BlockState behindOtherState = level.getBlockState(behindOtherPos);
-        if(behindOtherState.getBlock() instanceof DiversityVentBlock &&
+        if(behindOtherState.getBlock() instanceof VacuumTubeBlock &&
                 state.getValue(AXIS) == behindOtherState.getValue(AXIS) &&
-                behindOtherState.getValue(PART) == DiversityVentPart.MIDDLE){
+                behindOtherState.getValue(PART) == VacuumTubePart.MIDDLE){
             return false;
         }
         //Don't connect if this one is already maximum length
         BlockPos behindPos = pos.offset(pos.subtract(otherPos));
         BlockState behindState = level.getBlockState(behindPos);
-        if (behindState.getBlock() instanceof DiversityVentBlock &&
+        if (behindState.getBlock() instanceof VacuumTubeBlock &&
                 state.getValue(AXIS) == behindState.getValue(AXIS) &&
-                behindState.getValue(PART) == DiversityVentPart.MIDDLE){
+                behindState.getValue(PART) == VacuumTubePart.MIDDLE){
             return false;
         }
 
@@ -116,6 +116,6 @@ public class DiversityVentBlock extends PipeBlock {
     }
 
     static {
-        PART = EnumProperty.create("part", DiversityVentPart.class);
+        PART = EnumProperty.create("part", VacuumTubePart.class);
     }
 }

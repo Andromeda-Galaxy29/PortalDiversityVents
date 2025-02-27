@@ -4,12 +4,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.NotNull;
 
-public enum DiversityVentGateDirection implements StringRepresentable {
+public enum DiversityVentDirection implements StringRepresentable {
     POSITIVE,
     NEGATIVE,
     NONE;
 
-    private DiversityVentGateDirection() {
+    private DiversityVentDirection() {
     }
 
     @Override

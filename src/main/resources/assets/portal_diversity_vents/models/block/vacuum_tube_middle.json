@@ -1,8 +1,8 @@
 {
 	"render_type": "translucent",
 	"textures": {
-		"0": "portal_diversity_vents:block/diversity_vent",
-		"particle": "portal_diversity_vents:block/diversity_vent"
+		"0": "portal_diversity_vents:block/vacuum_tube",
+		"particle": "portal_diversity_vents:block/vacuum_tube"
 	},
 	"elements": [
 		{

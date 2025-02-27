@@ -22,13 +22,13 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class DiversityVentGateBlock extends PipeBlock {
+public class DiversityVentBlock extends PipeBlock {
 
-    public static final EnumProperty<DiversityVentGateDirection> DIRECTION;
+    public static final EnumProperty<DiversityVentDirection> DIRECTION;
 
-    public DiversityVentGateBlock(Properties properties) {
+    public DiversityVentBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(defaultBlockState().setValue(AXIS, Direction.Axis.Z).setValue(DIRECTION, DiversityVentGateDirection.NONE));
+        this.registerDefaultState(defaultBlockState().setValue(AXIS, Direction.Axis.Z).setValue(DIRECTION, DiversityVentDirection.NONE));
     }
 
     @Override
@@ -38,7 +38,7 @@ public class DiversityVentGateBlock extends PipeBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pos, BlockState state){
-        return new DiversityVentGateBlockEntity(pos, state);
+        return new DiversityVentBlockEntity(pos, state);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class DiversityVentGateBlock extends PipeBlock {
             return null;
         }
 
-        return createTickerHelper(blockEntityType, ModBlockEntities.DIVERSITY_VENT_GATE_BLOCK_ENTITY.get(),
+        return createTickerHelper(blockEntityType, ModBlockEntities.DIVERSITY_VENT_BLOCK_ENTITY.get(),
                 (level1, pos, state1, blockEntity) -> blockEntity.tick(level1, pos, state1));
     }
 
@@ -57,14 +57,14 @@ public class DiversityVentGateBlock extends PipeBlock {
             return InteractionResult.PASS;
         }
 
-        DiversityVentGateDirection current = state.getValue(DIRECTION);
-        for (int i = 0; i < DiversityVentGateDirection.values().length; i++){
-            if (DiversityVentGateDirection.values()[i] == current){
+        DiversityVentDirection current = state.getValue(DIRECTION);
+        for (int i = 0; i < DiversityVentDirection.values().length; i++){
+            if (DiversityVentDirection.values()[i] == current){
                 int next = i + 1;
-                if (next >= DiversityVentGateDirection.values().length){
+                if (next >= DiversityVentDirection.values().length){
                     next = 0;
                 }
-                level.setBlockAndUpdate(pos, state.setValue(DIRECTION, DiversityVentGateDirection.values()[next]));
+                level.setBlockAndUpdate(pos, state.setValue(DIRECTION, DiversityVentDirection.values()[next]));
                 break;
             }
         }
@@ -73,6 +73,6 @@ public class DiversityVentGateBlock extends PipeBlock {
     }
 
     static {
-        DIRECTION = EnumProperty.create("direction", DiversityVentGateDirection.class);
+        DIRECTION = EnumProperty.create("direction", DiversityVentDirection.class);
     }
 }

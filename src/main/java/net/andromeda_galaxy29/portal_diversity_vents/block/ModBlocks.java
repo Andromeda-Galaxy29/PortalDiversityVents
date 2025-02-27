@@ -1,8 +1,8 @@
 package net.andromeda_galaxy29.portal_diversity_vents.block;
 
 import net.andromeda_galaxy29.portal_diversity_vents.PortalDiversityVentsMod;
-import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent.DiversityVentBlock;
-import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent_gate.DiversityVentGateBlock;
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent.VacuumTubeBlock;
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent_gate.DiversityVentBlock;
 import net.andromeda_galaxy29.portal_diversity_vents.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -20,10 +20,10 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, PortalDiversityVentsMod.MODID);
 
+    public static final RegistryObject<Block> VACUUM_TUBE = registerBlock("vacuum_tube",
+            () -> new VacuumTubeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().noCollission()));
     public static final RegistryObject<Block> DIVERSITY_VENT = registerBlock("diversity_vent",
-            () -> new DiversityVentBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().noCollission()));
-    public static final RegistryObject<Block> DIVERSITY_VENT_GATE = registerBlock("diversity_vent_gate",
-            () -> new DiversityVentGateBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().noCollission()));
+            () -> new DiversityVentBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().noCollission()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

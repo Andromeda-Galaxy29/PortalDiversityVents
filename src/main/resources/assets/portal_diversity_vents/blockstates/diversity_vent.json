@@ -1,47 +1,36 @@
 {
   "variants": {
-    "axis=z,part=default": {
+    "axis=z,direction=none": {
       "model": "portal_diversity_vents:block/diversity_vent"
     },
-    "axis=x,part=default": {
+    "axis=x,direction=none": {
       "model": "portal_diversity_vents:block/diversity_vent",
       "y": -90
     },
-    "axis=y,part=default": {
+    "axis=y,direction=none": {
       "model": "portal_diversity_vents:block/diversity_vent",
       "x": 90
     },
-    "axis=z,part=front": {
-      "model": "portal_diversity_vents:block/diversity_vent_front"
+    "axis=z,direction=positive": {
+      "model": "portal_diversity_vents:block/diversity_vent_positive"
     },
-    "axis=x,part=front": {
-      "model": "portal_diversity_vents:block/diversity_vent_front",
+    "axis=x,direction=positive": {
+      "model": "portal_diversity_vents:block/diversity_vent_positive",
       "y": -90
     },
-    "axis=y,part=front": {
-      "model": "portal_diversity_vents:block/diversity_vent_front",
+    "axis=y,direction=positive": {
+      "model": "portal_diversity_vents:block/diversity_vent_positive",
       "x": 90
     },
-    "axis=z,part=middle": {
-      "model": "portal_diversity_vents:block/diversity_vent_middle"
+    "axis=z,direction=negative": {
+      "model": "portal_diversity_vents:block/diversity_vent_negative"
     },
-    "axis=x,part=middle": {
-      "model": "portal_diversity_vents:block/diversity_vent_middle",
+    "axis=x,direction=negative": {
+      "model": "portal_diversity_vents:block/diversity_vent_negative",
       "y": -90
     },
-    "axis=y,part=middle": {
-      "model": "portal_diversity_vents:block/diversity_vent_middle",
-      "x": 90
-    },
-    "axis=z,part=back": {
-      "model": "portal_diversity_vents:block/diversity_vent_back"
-    },
-    "axis=x,part=back": {
-      "model": "portal_diversity_vents:block/diversity_vent_back",
-      "y": -90
-    },
-    "axis=y,part=back": {
-      "model": "portal_diversity_vents:block/diversity_vent_back",
+    "axis=y,direction=negative": {
+      "model": "portal_diversity_vents:block/diversity_vent_negative",
       "x": 90
     }
   }
