@@ -21,9 +21,9 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, PortalDiversityVentsMod.MODID);
 
     public static final RegistryObject<Block> VACUUM_TUBE = registerBlock("vacuum_tube",
-            () -> new VacuumTubeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().noCollission()));
+            () -> new VacuumTubeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion()));
     public static final RegistryObject<Block> DIVERSITY_VENT = registerBlock("diversity_vent",
-            () -> new DiversityVentBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion().noCollission()));
+            () -> new DiversityVentBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

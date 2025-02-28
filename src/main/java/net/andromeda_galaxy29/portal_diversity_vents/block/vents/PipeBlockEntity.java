@@ -1,5 +1,6 @@
 package net.andromeda_galaxy29.portal_diversity_vents.block.vents;
 
+import com.google.common.collect.Lists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -25,8 +26,8 @@ public class PipeBlockEntity extends BlockEntity {
             return;
         }
 
-        List<Entity> entities = level.getEntities(null, new AABB(pos));
-        for (var entity : entities){
+        List<Entity> entities = level.getEntities(null, new AABB(pos)); //TODO: Better detection?
+        for (Entity entity : entities){
 
             Direction motionDirection = getMotionDirection(level, entity, pos, state);
             if (motionDirection == null){
@@ -43,7 +44,7 @@ public class PipeBlockEntity extends BlockEntity {
                 }
 
                 Vec3 push = pos.relative(motionDirection, 2).getCenter()
-                        .subtract(entity.getBoundingBox().getCenter()).normalize().scale(0.8);
+                        .subtract(entity.getBoundingBox().getCenter()).normalize().scale(0.7);
                 entity.hasImpulse = true;
                 entity.setDeltaMovement(push);
                 entity.resetFallDistance();
