@@ -1,8 +1,8 @@
 package net.andromeda_galaxy29.portal_diversity_vents.block;
 
 import net.andromeda_galaxy29.portal_diversity_vents.PortalDiversityVentsMod;
-import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent.VacuumTubeBlockEntity;
-import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent_gate.DiversityVentBlockEntity;
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.vacuum_tube.VacuumTubeBlockEntity;
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent.DiversityVentBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

@@ -1,11 +1,10 @@
-package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent_gate;
+package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent;
 
 import net.andromeda_galaxy29.portal_diversity_vents.block.ModBlockEntities;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlock;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;

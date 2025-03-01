@@ -1,4 +1,4 @@
-package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent;
+package net.andromeda_galaxy29.portal_diversity_vents.block.vents.vacuum_tube;
 
 import net.minecraft.util.StringRepresentable;
 import org.jetbrains.annotations.NotNull;

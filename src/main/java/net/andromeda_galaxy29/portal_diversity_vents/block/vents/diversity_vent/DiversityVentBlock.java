@@ -1,4 +1,4 @@
-package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent_gate;
+package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent;
 
 import net.andromeda_galaxy29.portal_diversity_vents.block.ModBlockEntities;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlock;

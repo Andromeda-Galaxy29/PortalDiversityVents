@@ -1,4 +1,4 @@
-package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent_gate;
+package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent;
 
 import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;

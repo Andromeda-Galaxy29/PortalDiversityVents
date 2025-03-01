@@ -1,8 +1,8 @@
 package net.andromeda_galaxy29.portal_diversity_vents.block;
 
 import net.andromeda_galaxy29.portal_diversity_vents.PortalDiversityVentsMod;
-import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent.VacuumTubeBlock;
-import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent_gate.DiversityVentBlock;
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.vacuum_tube.VacuumTubeBlock;
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent.DiversityVentBlock;
 import net.andromeda_galaxy29.portal_diversity_vents.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
