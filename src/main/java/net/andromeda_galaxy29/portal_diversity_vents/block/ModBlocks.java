@@ -3,6 +3,7 @@ package net.andromeda_galaxy29.portal_diversity_vents.block;
 import net.andromeda_galaxy29.portal_diversity_vents.PortalDiversityVentsMod;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.vacuum_tube.VacuumTubeBlock;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent.DiversityVentBlock;
+import net.andromeda_galaxy29.portal_diversity_vents.block.vents.vacuum_tube.junction.VacuumTubeJunctionBlock;
 import net.andromeda_galaxy29.portal_diversity_vents.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -22,6 +23,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> VACUUM_TUBE = registerBlock("vacuum_tube",
             () -> new VacuumTubeBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion()));
+    public static final RegistryObject<Block> VACUUM_TUBE_JUNCTION = registerBlock("vacuum_tube_junction",
+            () -> new VacuumTubeJunctionBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion(), (VacuumTubeBlock) VACUUM_TUBE.get()));
     public static final RegistryObject<Block> DIVERSITY_VENT = registerBlock("diversity_vent",
             () -> new DiversityVentBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 

@@ -1,5 +1,5 @@
 {
-	"parent": "portal_diversity_vents:block/diversity_vent",
+	"parent": "portal_diversity_vents:block/diversity_vent/none",
 	"textures": {
 		"0": "portal_diversity_vents:block/diversity_vent_negative",
 		"particle": "portal_diversity_vents:block/diversity_vent_negative"

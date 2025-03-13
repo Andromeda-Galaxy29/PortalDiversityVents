@@ -1,47 +1,50 @@
 {
   "variants": {
+    "part=junction_part": {
+      "model": "portal_diversity_vents:block/vacuum_tube/junction_part"
+    },
     "axis=z,part=default": {
-      "model": "portal_diversity_vents:block/vacuum_tube"
+      "model": "portal_diversity_vents:block/vacuum_tube/default"
     },
     "axis=x,part=default": {
-      "model": "portal_diversity_vents:block/vacuum_tube",
+      "model": "portal_diversity_vents:block/vacuum_tube/default",
       "y": -90
     },
     "axis=y,part=default": {
-      "model": "portal_diversity_vents:block/vacuum_tube",
+      "model": "portal_diversity_vents:block/vacuum_tube/default",
       "x": 90
     },
     "axis=z,part=front": {
-      "model": "portal_diversity_vents:block/vacuum_tube_front"
+      "model": "portal_diversity_vents:block/vacuum_tube/front"
     },
     "axis=x,part=front": {
-      "model": "portal_diversity_vents:block/vacuum_tube_front",
+      "model": "portal_diversity_vents:block/vacuum_tube/front",
       "y": -90
     },
     "axis=y,part=front": {
-      "model": "portal_diversity_vents:block/vacuum_tube_front",
+      "model": "portal_diversity_vents:block/vacuum_tube/front",
       "x": 90
     },
     "axis=z,part=middle": {
-      "model": "portal_diversity_vents:block/vacuum_tube_middle"
+      "model": "portal_diversity_vents:block/vacuum_tube/middle"
     },
     "axis=x,part=middle": {
-      "model": "portal_diversity_vents:block/vacuum_tube_middle",
+      "model": "portal_diversity_vents:block/vacuum_tube/middle",
       "y": -90
     },
     "axis=y,part=middle": {
-      "model": "portal_diversity_vents:block/vacuum_tube_middle",
+      "model": "portal_diversity_vents:block/vacuum_tube/middle",
       "x": 90
     },
     "axis=z,part=back": {
-      "model": "portal_diversity_vents:block/vacuum_tube_back"
+      "model": "portal_diversity_vents:block/vacuum_tube/back"
     },
     "axis=x,part=back": {
-      "model": "portal_diversity_vents:block/vacuum_tube_back",
+      "model": "portal_diversity_vents:block/vacuum_tube/back",
       "y": -90
     },
     "axis=y,part=back": {
-      "model": "portal_diversity_vents:block/vacuum_tube_back",
+      "model": "portal_diversity_vents:block/vacuum_tube/back",
       "x": 90
     }
   }

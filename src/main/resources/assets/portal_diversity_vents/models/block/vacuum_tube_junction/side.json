@@ -1,0 +1,21 @@
+{
+	"textures": {
+		"0": "portal_diversity_vents:block/vacuum_tube",
+		"particle": "portal_diversity_vents:block/vacuum_tube"
+	},
+	"elements": [
+		{
+			"from": [7, 7, -8],
+			"to": [9, 9, -6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [11, 7, 13, 9], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [11, 7, 13, 9], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [11, 7, 13, 9], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [11, 7, 13, 9], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [11, 7, 13, 9], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [11, 7, 13, 9], "rotation": 90, "texture": "#0"}
+			}
+		}
+	]
+}

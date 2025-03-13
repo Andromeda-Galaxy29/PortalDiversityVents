@@ -1,0 +1,146 @@
+{
+  "multipart": [
+    {
+      "when": {"north": true},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/connector_back"
+      }
+    },
+    {
+      "when": {"south": true},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/connector_front"
+      }
+    },
+    {
+      "when": {"west": true},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/connector_back",
+        "y": -90
+      }
+    },
+    {
+      "when": {"east": true},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/connector_front",
+        "y": -90
+      }
+    },
+    {
+      "when": {"down": true},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/connector_back",
+        "x": 90
+      }
+    },
+    {
+      "when": {"up": true},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/connector_front",
+        "x": 90
+      }
+    },
+
+    {
+      "when": {"north": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/side"
+      }
+    },
+    {
+      "when": {"south": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/side",
+        "y": 180
+      }
+    },
+    {
+      "when": {"west": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/side",
+        "y": -90
+      }
+    },
+    {
+      "when": {"east": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/side",
+        "y": 90
+      }
+    },
+    {
+      "when": {"down": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/side",
+        "x": 90
+      }
+    },
+    {
+      "when": {"up": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/side",
+        "x": -90
+      }
+    },
+
+    {
+      "when": {"up": true, "north": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod"
+      }
+    },
+    {
+      "when": {"up": true, "south": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod",
+        "y": 180
+      }
+    },
+    {
+      "when": {"up": true, "west": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod",
+        "y": -90
+      }
+    },
+    {
+      "when": {"up": true, "east": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod",
+        "y": 90
+      }
+    },
+
+    {
+      "when": {"down": true, "north": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod",
+        "x": 180,
+        "y": 180
+      }
+    },
+    {
+      "when": {"down": true, "south": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod",
+        "x": 180
+      }
+    },
+    {
+      "when": {"down": true, "west": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod",
+        "x": 180,
+        "y": 90
+      }
+    },
+    {
+      "when": {"down": true, "east": false},
+      "apply": {
+        "model": "portal_diversity_vents:block/vacuum_tube_junction/rod",
+        "x": 180,
+        "y": -90
+      }
+    }
+  ]
+}

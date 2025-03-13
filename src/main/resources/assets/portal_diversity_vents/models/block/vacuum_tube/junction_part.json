@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/air",
+  "textures": {
+    "particle": "portal_diversity_vents:block/vacuum_tube"
+  }
+}
