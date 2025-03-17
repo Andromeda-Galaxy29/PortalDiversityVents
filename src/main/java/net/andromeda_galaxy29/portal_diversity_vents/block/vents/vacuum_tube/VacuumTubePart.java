@@ -7,7 +7,6 @@ public enum VacuumTubePart implements StringRepresentable {
     DEFAULT,
     FRONT,
     MIDDLE,
-    JUNCTION_PART,
     BACK;
 
     private VacuumTubePart() {
@@ -26,8 +25,6 @@ public enum VacuumTubePart implements StringRepresentable {
             return "middle";
         }else if (this == BACK){
             return "back";
-        }else if (this == JUNCTION_PART) {
-            return "junction_part";
         }else {
             return "default";
         }

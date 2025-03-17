@@ -2,7 +2,6 @@ package net.andromeda_galaxy29.portal_diversity_vents.block.vents.vacuum_tube;
 
 import net.andromeda_galaxy29.portal_diversity_vents.block.ModBlockEntities;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlock;
-import net.andromeda_galaxy29.portal_diversity_vents.block.vents.vacuum_tube.junction.VacuumTubeJunctionBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -22,8 +21,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 
 public class VacuumTubeBlock extends PipeBlock {
-
-    public VacuumTubeJunctionBlock junctionReplacement;
 
     public static final EnumProperty<VacuumTubePart> PART;
 
@@ -60,21 +57,6 @@ public class VacuumTubeBlock extends PipeBlock {
         BlockPos backPos = pos.relative(state.getValue(AXIS), -1);
         BlockState backState = level.getBlockState(backPos);
 
-//        if ((frontState.getBlock() == this) || (backState.getBlock() == this)){
-//            for (Direction dir : Direction.values()){
-//                BlockState dirState =  level.getBlockState(pos.relative(dir));
-//                if (dir.getAxis() != state.getValue(AXIS) && dirState.getBlock() == this && dirState.getValue(AXIS) == dir.getAxis()){
-//                    level.setBlockAndUpdate(pos, junctionReplacement.defaultBlockState());
-//                    return;
-//                }
-//            }
-//        }
-
-        if (frontState.getBlock() == junctionReplacement || backState.getBlock() == junctionReplacement){
-            level.setBlockAndUpdate(pos, state.setValue(PART, VacuumTubePart.JUNCTION_PART));
-            return;
-        }
-
         if (!canConnect(level, pos, state, frontPos, frontState) && canConnect(level, pos, state, backPos, backState)){
             level.setBlockAndUpdate(pos, state.setValue(PART, VacuumTubePart.FRONT));
         }else if (canConnect(level, pos, state, frontPos, frontState) && canConnect(level, pos, state, backPos, backState)){
@@ -89,10 +71,6 @@ public class VacuumTubeBlock extends PipeBlock {
     public boolean canConnect(Level level, BlockPos pos, BlockState state, BlockPos otherPos, BlockState otherState){
         if (!(otherState.getBlock() == this &&
                 state.getValue(AXIS) == otherState.getValue(AXIS))) {
-            return false;
-        }
-
-        if(otherState.getValue(PART) == VacuumTubePart.JUNCTION_PART){
             return false;
         }
 
