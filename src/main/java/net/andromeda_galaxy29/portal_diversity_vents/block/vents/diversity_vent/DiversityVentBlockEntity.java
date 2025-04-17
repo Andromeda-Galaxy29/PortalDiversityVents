@@ -53,7 +53,7 @@ public class DiversityVentBlockEntity extends PipeBlockEntity {
 
         List<Entity> entities = level.getEntities(null, bounding_box);
         for (Entity entity : entities){
-            if (!canTransport(entity) || entity.isShiftKeyDown()){
+            if (!canTransport(entity)){
                 continue;
             }
 

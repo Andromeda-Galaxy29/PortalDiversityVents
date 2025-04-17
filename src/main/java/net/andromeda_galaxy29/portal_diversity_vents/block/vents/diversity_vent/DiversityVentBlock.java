@@ -2,6 +2,7 @@ package net.andromeda_galaxy29.portal_diversity_vents.block.vents.diversity_vent
 
 import net.andromeda_galaxy29.portal_diversity_vents.block.ModBlockEntities;
 import net.andromeda_galaxy29.portal_diversity_vents.block.vents.PipeBlock;
+import net.andromeda_galaxy29.portal_diversity_vents.item.wrench.WrenchItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -53,7 +54,7 @@ public class DiversityVentBlock extends PipeBlock {
 
     @Override
     public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (player.getItemInHand(hand).getItem() != Items.AIR){
+        if (!(player.getItemInHand(hand).getItem() instanceof WrenchItem)){
             return InteractionResult.PASS;
         }
 

@@ -1,6 +1,5 @@
 package net.andromeda_galaxy29.portal_diversity_vents.block.vents;
 
-import com.google.common.collect.Lists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -55,7 +54,8 @@ public class PipeBlockEntity extends BlockEntity {
     public boolean canTransport(Entity entity){
         return entity.getBoundingBox().getXsize() < 2 &&
                 entity.getBoundingBox().getYsize() < 2 &&
-                entity.getBoundingBox().getZsize() < 2;
+                entity.getBoundingBox().getZsize() < 2 &&
+                !entity.isShiftKeyDown();
     }
 
     public @Nullable Direction getMotionDirection(Level level, Entity entity, BlockPos pos, BlockState state){

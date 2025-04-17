@@ -18,6 +18,7 @@ public class ModTabs {
             .icon(() -> new ItemStack(ModBlocks.VACUUM_TUBE.get()))
             .title(Component.translatable("creativetab.diversity_vents"))
             .displayItems((itemDisplayParameters, output) -> {
+                output.accept(ModItems.WRENCH.get());
                 output.accept(ModBlocks.VACUUM_TUBE.get());
                 output.accept(ModBlocks.DIVERSITY_VENT.get());
             })
