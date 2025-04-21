@@ -52,27 +52,6 @@ public class DiversityVentBlock extends PipeBlock {
                 (level1, pos, state1, blockEntity) -> blockEntity.tick(level1, pos, state1));
     }
 
-    @Override
-    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (!(player.getItemInHand(hand).getItem() instanceof WrenchItem)){
-            return InteractionResult.PASS;
-        }
-
-        DiversityVentDirection current = state.getValue(DIRECTION);
-        for (int i = 0; i < DiversityVentDirection.values().length; i++){
-            if (DiversityVentDirection.values()[i] == current){
-                int next = i + 1;
-                if (next >= DiversityVentDirection.values().length){
-                    next = 0;
-                }
-                level.setBlockAndUpdate(pos, state.setValue(DIRECTION, DiversityVentDirection.values()[next]));
-                break;
-            }
-        }
-        player.swing(hand);
-        return InteractionResult.SUCCESS;
-    }
-
     static {
         DIRECTION = EnumProperty.create("direction", DiversityVentDirection.class);
     }

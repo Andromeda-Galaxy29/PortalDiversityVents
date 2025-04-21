@@ -54,8 +54,7 @@ public class PipeBlockEntity extends BlockEntity {
     public boolean canTransport(Entity entity){
         return entity.getBoundingBox().getXsize() < 2 &&
                 entity.getBoundingBox().getYsize() < 2 &&
-                entity.getBoundingBox().getZsize() < 2 &&
-                !entity.isShiftKeyDown();
+                entity.getBoundingBox().getZsize() < 2;
     }
 
     public @Nullable Direction getMotionDirection(Level level, Entity entity, BlockPos pos, BlockState state){
