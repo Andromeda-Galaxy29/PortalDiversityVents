@@ -1,8 +1,5 @@
 {
   "variants": {
-    "part=junction_part": {
-      "model": "portal_diversity_vents:block/vacuum_tube/junction_part"
-    },
     "axis=z,part=default": {
       "model": "portal_diversity_vents:block/vacuum_tube/default"
     },
