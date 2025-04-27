@@ -13,13 +13,19 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.apache.commons.compress.utils.Lists;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class VacuumTubeBlockEntity extends PipeBlockEntity implements WrenchableBlockEntity {
 
@@ -87,16 +93,42 @@ public class VacuumTubeBlockEntity extends PipeBlockEntity implements Wrenchable
     @Override
     public void tick(Level level, BlockPos pos, BlockState state) {
         super.tick(level, pos, state);
-
-        if (level.isClientSide()){
+        if (!(state.getBlock() instanceof VacuumTubeBlock)){
             return;
         }
 
-        if(isConnected(Direction.AxisDirection.POSITIVE)){
-            //TODO
+        if(isConnected(Direction.AxisDirection.POSITIVE) && shouldRenderCurve(Direction.AxisDirection.POSITIVE)){
+            push(level, pos, Direction.AxisDirection.POSITIVE, connectLenPositive);
         }
-        if(isConnected(Direction.AxisDirection.NEGATIVE)){
-            //TODO
+        if(isConnected(Direction.AxisDirection.NEGATIVE) && shouldRenderCurve(Direction.AxisDirection.NEGATIVE)){
+            push(level, pos, Direction.AxisDirection.NEGATIVE, connectLenNegative);
+        }
+    }
+
+    public void push(Level level, BlockPos pos, Direction.AxisDirection dir, double len){
+        double collisionInterval = 1.0 / Math.round(len);
+        double blockInterval = 1.0 / len;
+
+        for(double i = collisionInterval/2; i <= 1; i += collisionInterval) {
+            Direction.Axis axis = getBlockState().getValue(PipeBlock.AXIS);
+            Vec3 currentPosition = pos.getCenter().relative(Direction.fromAxisAndDirection(axis, dir), 0.5).add(getOffsetInCurve(dir, i));
+            List<Entity> entities = level.getEntities(null,
+                    new AABB(currentPosition.add(0.5, 0.5, 0.5), currentPosition.subtract(0.5, 0.5, 0.5)));
+
+            for (Entity entity : entities){
+                if (!canTransport(entity)){
+                    continue;
+                }
+                if (entity instanceof Player){
+                    entity.hurtMarked = true; //Needs to be set or else players are unaffected
+                }
+
+                Vec3 push = pos.getCenter().add(getOffsetInCurve(dir, i + blockInterval * 2))
+                        .subtract(entity.getBoundingBox().getCenter()).normalize().scale(0.7);
+                entity.hasImpulse = true;
+                entity.setDeltaMovement(push);
+                entity.resetFallDistance();
+            }
         }
     }
 
@@ -158,6 +190,13 @@ public class VacuumTubeBlockEntity extends PipeBlockEntity implements Wrenchable
         Vec3 offset = Vec3.ZERO.relative(Direction.fromAxisAndDirection(axis, dir), 0.5);
         Vec3 begin = getBlockPos().getCenter().relative(Direction.fromAxisAndDirection(axis, dir), 0.5);
         Vec3 end = connectPos.getCenter().relative(Direction.fromAxisAndDirection(connectAxis, connectDir), 0.5);
+
+        if(progress < 0){
+            return Vec3.ZERO.relative(Direction.fromAxisAndDirection(axis, dir), -1);
+        }
+        if(progress > 1){
+            return end.subtract(begin).relative(Direction.fromAxisAndDirection(connectAxis, connectDir), -1);
+        }
 
         double x = (end.x - begin.x);
         double y = (end.y - begin.y);
